@@ -242,7 +242,7 @@ func Fail(t TestingT, failureMessage string, msgAndArgs ...interface{}) bool {
 
 // Implements asserts that an object is implemented by the specified interface.
 //
-//    assert.Implements(t, (*MyInterface)(nil), new(MyObject), "MyObject")
+//   assert.Implements(t, (*MyInterface)(nil), new(MyObject), "MyObject")
 func Implements(t TestingT, interfaceObject interface{}, object interface{}, msgAndArgs ...interface{}) bool {
 
 	interfaceType := reflect.TypeOf(interfaceObject).Elem()
@@ -267,7 +267,7 @@ func IsType(t TestingT, expectedType interface{}, object interface{}, msgAndArgs
 
 // Equal asserts that two objects are equal.
 //
-//    assert.Equal(t, 123, 123, "123 and 123 should be equal")
+//   assert.Equal(t, 123, 123, "123 and 123 should be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Equal(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -319,7 +319,7 @@ func isNumericType(t reflect.Type) bool {
 // EqualValues asserts that two objects are equal or convertable to the same types
 // and equal.
 //
-//    assert.EqualValues(t, uint32(123), int32(123), "123 and 123 should be equal")
+//   assert.EqualValues(t, uint32(123), int32(123), "123 and 123 should be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func EqualValues(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -338,7 +338,7 @@ func EqualValues(t TestingT, expected, actual interface{}, msgAndArgs ...interfa
 
 // Exactly asserts that two objects are equal is value and type.
 //
-//    assert.Exactly(t, int32(123), int64(123), "123 and 123 should NOT be equal")
+//   assert.Exactly(t, int32(123), int64(123), "123 and 123 should NOT be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Exactly(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -356,7 +356,7 @@ func Exactly(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}
 
 // NotNil asserts that the specified object is not nil.
 //
-//    assert.NotNil(t, err, "err should be something")
+//   assert.NotNil(t, err, "err should be something")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func NotNil(t TestingT, object interface{}, msgAndArgs ...interface{}) bool {
@@ -383,7 +383,7 @@ func isNil(object interface{}) bool {
 
 // Nil asserts that the specified object is nil.
 //
-//    assert.Nil(t, err, "err should be nothing")
+//   assert.Nil(t, err, "err should be nothing")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Nil(t TestingT, object interface{}, msgAndArgs ...interface{}) bool {
@@ -458,7 +458,7 @@ func isEmpty(object interface{}) bool {
 // Empty asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
 // a slice or a channel with len == 0.
 //
-//  assert.Empty(t, obj)
+//   assert.Empty(t, obj)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Empty(t TestingT, object interface{}, msgAndArgs ...interface{}) bool {
@@ -475,9 +475,9 @@ func Empty(t TestingT, object interface{}, msgAndArgs ...interface{}) bool {
 // NotEmpty asserts that the specified object is NOT empty.  I.e. not nil, "", false, 0 or either
 // a slice or a channel with len == 0.
 //
-//  if assert.NotEmpty(t, obj) {
-//    assert.Equal(t, "two", obj[1])
-//  }
+//   if assert.NotEmpty(t, obj) {
+//     assert.Equal(t, "two", obj[1])
+//   }
 //
 // Returns whether the assertion was successful (true) or not (false).
 func NotEmpty(t TestingT, object interface{}, msgAndArgs ...interface{}) bool {
@@ -506,7 +506,7 @@ func getLen(x interface{}) (ok bool, length int) {
 // Len asserts that the specified object has specific length.
 // Len also fails if the object has a type that len() not accept.
 //
-//    assert.Len(t, mySlice, 3, "The size of slice is not 3")
+//   assert.Len(t, mySlice, 3, "The size of slice is not 3")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Len(t TestingT, object interface{}, length int, msgAndArgs ...interface{}) bool {
@@ -523,7 +523,7 @@ func Len(t TestingT, object interface{}, length int, msgAndArgs ...interface{}) 
 
 // True asserts that the specified value is true.
 //
-//    assert.True(t, myBool, "myBool should be true")
+//   assert.True(t, myBool, "myBool should be true")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func True(t TestingT, value bool, msgAndArgs ...interface{}) bool {
@@ -538,7 +538,7 @@ func True(t TestingT, value bool, msgAndArgs ...interface{}) bool {
 
 // False asserts that the specified value is false.
 //
-//    assert.False(t, myBool, "myBool should be false")
+//   assert.False(t, myBool, "myBool should be false")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func False(t TestingT, value bool, msgAndArgs ...interface{}) bool {
@@ -553,7 +553,7 @@ func False(t TestingT, value bool, msgAndArgs ...interface{}) bool {
 
 // NotEqual asserts that the specified values are NOT equal.
 //
-//    assert.NotEqual(t, obj1, obj2, "two objects shouldn't be equal")
+//   assert.NotEqual(t, obj1, obj2, "two objects shouldn't be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func NotEqual(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -607,9 +607,9 @@ func includeElement(list interface{}, element interface{}) (ok, found bool) {
 // Contains asserts that the specified string, list(array, slice...) or map contains the
 // specified substring or element.
 //
-//    assert.Contains(t, "Hello World", "World", "But 'Hello World' does contain 'World'")
-//    assert.Contains(t, ["Hello", "World"], "World", "But ["Hello", "World"] does contain 'World'")
-//    assert.Contains(t, {"Hello": "World"}, "Hello", "But {'Hello': 'World'} does contain 'Hello'")
+//   assert.Contains(t, "Hello World", "World", "But 'Hello World' does contain 'World'")
+//   assert.Contains(t, ["Hello", "World"], "World", "But ["Hello", "World"] does contain 'World'")
+//   assert.Contains(t, {"Hello": "World"}, "Hello", "But {'Hello': 'World'} does contain 'Hello'")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Contains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool {
@@ -629,9 +629,9 @@ func Contains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bo
 // NotContains asserts that the specified string, list(array, slice...) or map does NOT contain the
 // specified substring or element.
 //
-//    assert.NotContains(t, "Hello World", "Earth", "But 'Hello World' does NOT contain 'Earth'")
-//    assert.NotContains(t, ["Hello", "World"], "Earth", "But ['Hello', 'World'] does NOT contain 'Earth'")
-//    assert.NotContains(t, {"Hello": "World"}, "Earth", "But {'Hello': 'World'} does NOT contain 'Earth'")
+//   assert.NotContains(t, "Hello World", "Earth", "But 'Hello World' does NOT contain 'Earth'")
+//   assert.NotContains(t, ["Hello", "World"], "Earth", "But ['Hello', 'World'] does NOT contain 'Earth'")
+//   assert.NotContains(t, {"Hello": "World"}, "Earth", "But {'Hello': 'World'} does NOT contain 'Earth'")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func NotContains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool {
@@ -766,7 +766,7 @@ func toFloat(x interface{}) (float64, bool) {
 
 // InDelta asserts that the two numerals are within delta of each other.
 //
-// 	 assert.InDelta(t, math.Pi, (22 / 7.0), 0.01)
+//   assert.InDelta(t, math.Pi, (22 / 7.0), 0.01)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func InDelta(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool {
@@ -876,7 +876,7 @@ func InEpsilonSlice(t TestingT, expected, actual interface{}, epsilon float64, m
 //
 //   actualObj, err := SomeFunction()
 //   if assert.NoError(t, err) {
-//	   assert.Equal(t, actualObj, expectedObj)
+//     assert.Equal(t, actualObj, expectedObj)
 //   }
 //
 // Returns whether the assertion was successful (true) or not (false).
@@ -892,7 +892,7 @@ func NoError(t TestingT, err error, msgAndArgs ...interface{}) bool {
 //
 //   actualObj, err := SomeFunction()
 //   if assert.Error(t, err, "An error was expected") {
-//	   assert.Equal(t, err, expectedError)
+//     assert.Equal(t, err, expectedError)
 //   }
 //
 // Returns whether the assertion was successful (true) or not (false).
@@ -943,8 +943,8 @@ func matchRegexp(rx interface{}, str interface{}) bool {
 
 // Regexp asserts that a specified regexp matches a string.
 //
-//  assert.Regexp(t, regexp.MustCompile("start"), "it's starting")
-//  assert.Regexp(t, "start...$", "it's not starting")
+//   assert.Regexp(t, regexp.MustCompile("start"), "it's starting")
+//   assert.Regexp(t, "start...$", "it's not starting")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func Regexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{}) bool {
@@ -960,8 +960,8 @@ func Regexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface
 
 // NotRegexp asserts that a specified regexp does not match a string.
 //
-//  assert.NotRegexp(t, regexp.MustCompile("starts"), "it's starting")
-//  assert.NotRegexp(t, "^start", "it's not starting")
+//   assert.NotRegexp(t, regexp.MustCompile("starts"), "it's starting")
+//   assert.NotRegexp(t, "^start", "it's not starting")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func NotRegexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{}) bool {
@@ -993,7 +993,7 @@ func NotZero(t TestingT, i interface{}, msgAndArgs ...interface{}) bool {
 
 // JSONEq asserts that two JSON strings are equivalent.
 //
-//  assert.JSONEq(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
+//   assert.JSONEq(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func JSONEq(t TestingT, expected string, actual string, msgAndArgs ...interface{}) bool {

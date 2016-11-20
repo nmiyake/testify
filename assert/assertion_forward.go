@@ -19,9 +19,9 @@ func (a *Assertions) Condition(comp Comparison, msgAndArgs ...interface{}) bool 
 // Contains asserts that the specified string, list(array, slice...) or map contains the
 // specified substring or element.
 //
-//    a.Contains("Hello World", "World", "But 'Hello World' does contain 'World'")
-//    a.Contains(["Hello", "World"], "World", "But ["Hello", "World"] does contain 'World'")
-//    a.Contains({"Hello": "World"}, "Hello", "But {'Hello': 'World'} does contain 'Hello'")
+//   a.Contains("Hello World", "World", "But 'Hello World' does contain 'World'")
+//   a.Contains(["Hello", "World"], "World", "But ["Hello", "World"] does contain 'World'")
+//   a.Contains({"Hello": "World"}, "Hello", "But {'Hello': 'World'} does contain 'Hello'")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Contains(s interface{}, contains interface{}, msgAndArgs ...interface{}) bool {
@@ -31,7 +31,7 @@ func (a *Assertions) Contains(s interface{}, contains interface{}, msgAndArgs ..
 // Empty asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
 // a slice or a channel with len == 0.
 //
-//  a.Empty(obj)
+//   a.Empty(obj)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Empty(object interface{}, msgAndArgs ...interface{}) bool {
@@ -40,7 +40,7 @@ func (a *Assertions) Empty(object interface{}, msgAndArgs ...interface{}) bool {
 
 // Equal asserts that two objects are equal.
 //
-//    a.Equal(123, 123, "123 and 123 should be equal")
+//   a.Equal(123, 123, "123 and 123 should be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Equal(expected interface{}, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -61,7 +61,7 @@ func (a *Assertions) EqualError(theError error, errString string, msgAndArgs ...
 // EqualValues asserts that two objects are equal or convertable to the same types
 // and equal.
 //
-//    a.EqualValues(uint32(123), int32(123), "123 and 123 should be equal")
+//   a.EqualValues(uint32(123), int32(123), "123 and 123 should be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) EqualValues(expected interface{}, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -72,7 +72,7 @@ func (a *Assertions) EqualValues(expected interface{}, actual interface{}, msgAn
 //
 //   actualObj, err := SomeFunction()
 //   if a.Error(err, "An error was expected") {
-// 	   assert.Equal(t, err, expectedError)
+//     assert.Equal(t, err, expectedError)
 //   }
 //
 // Returns whether the assertion was successful (true) or not (false).
@@ -82,7 +82,7 @@ func (a *Assertions) Error(err error, msgAndArgs ...interface{}) bool {
 
 // Exactly asserts that two objects are equal is value and type.
 //
-//    a.Exactly(int32(123), int64(123), "123 and 123 should NOT be equal")
+//   a.Exactly(int32(123), int64(123), "123 and 123 should NOT be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Exactly(expected interface{}, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -101,7 +101,7 @@ func (a *Assertions) FailNow(failureMessage string, msgAndArgs ...interface{}) b
 
 // False asserts that the specified value is false.
 //
-//    a.False(myBool, "myBool should be false")
+//   a.False(myBool, "myBool should be false")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) False(value bool, msgAndArgs ...interface{}) bool {
@@ -111,7 +111,7 @@ func (a *Assertions) False(value bool, msgAndArgs ...interface{}) bool {
 // HTTPBodyContains asserts that a specified handler returns a
 // body that contains a string.
 //
-//  a.HTTPBodyContains(myHandler, "www.google.com", nil, "I'm Feeling Lucky")
+//   a.HTTPBodyContains(myHandler, "www.google.com", nil, "I'm Feeling Lucky")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) HTTPBodyContains(handler http.HandlerFunc, method string, url string, values url.Values, str interface{}) bool {
@@ -121,7 +121,7 @@ func (a *Assertions) HTTPBodyContains(handler http.HandlerFunc, method string, u
 // HTTPBodyNotContains asserts that a specified handler returns a
 // body that does not contain a string.
 //
-//  a.HTTPBodyNotContains(myHandler, "www.google.com", nil, "I'm Feeling Lucky")
+//   a.HTTPBodyNotContains(myHandler, "www.google.com", nil, "I'm Feeling Lucky")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) HTTPBodyNotContains(handler http.HandlerFunc, method string, url string, values url.Values, str interface{}) bool {
@@ -130,7 +130,7 @@ func (a *Assertions) HTTPBodyNotContains(handler http.HandlerFunc, method string
 
 // HTTPError asserts that a specified handler returns an error status code.
 //
-//  a.HTTPError(myHandler, "POST", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+//   a.HTTPError(myHandler, "POST", "/a/b/c", url.Values{"a": []string{"b", "c"}}
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) HTTPError(handler http.HandlerFunc, method string, url string, values url.Values) bool {
@@ -139,7 +139,7 @@ func (a *Assertions) HTTPError(handler http.HandlerFunc, method string, url stri
 
 // HTTPRedirect asserts that a specified handler returns a redirect status code.
 //
-//  a.HTTPRedirect(myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+//   a.HTTPRedirect(myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) HTTPRedirect(handler http.HandlerFunc, method string, url string, values url.Values) bool {
@@ -148,7 +148,7 @@ func (a *Assertions) HTTPRedirect(handler http.HandlerFunc, method string, url s
 
 // HTTPSuccess asserts that a specified handler returns a success status code.
 //
-//  a.HTTPSuccess(myHandler, "POST", "http://www.google.com", nil)
+//   a.HTTPSuccess(myHandler, "POST", "http://www.google.com", nil)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) HTTPSuccess(handler http.HandlerFunc, method string, url string, values url.Values) bool {
@@ -157,14 +157,14 @@ func (a *Assertions) HTTPSuccess(handler http.HandlerFunc, method string, url st
 
 // Implements asserts that an object is implemented by the specified interface.
 //
-//    a.Implements((*MyInterface)(nil), new(MyObject), "MyObject")
+//   a.Implements((*MyInterface)(nil), new(MyObject), "MyObject")
 func (a *Assertions) Implements(interfaceObject interface{}, object interface{}, msgAndArgs ...interface{}) bool {
 	return Implements(a.t, interfaceObject, object, msgAndArgs...)
 }
 
 // InDelta asserts that the two numerals are within delta of each other.
 //
-// 	 a.InDelta(math.Pi, (22 / 7.0), 0.01)
+//   a.InDelta(math.Pi, (22 / 7.0), 0.01)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) InDelta(expected interface{}, actual interface{}, delta float64, msgAndArgs ...interface{}) bool {
@@ -195,7 +195,7 @@ func (a *Assertions) IsType(expectedType interface{}, object interface{}, msgAnd
 
 // JSONEq asserts that two JSON strings are equivalent.
 //
-//  a.JSONEq(`{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
+//   a.JSONEq(`{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) JSONEq(expected string, actual string, msgAndArgs ...interface{}) bool {
@@ -205,7 +205,7 @@ func (a *Assertions) JSONEq(expected string, actual string, msgAndArgs ...interf
 // Len asserts that the specified object has specific length.
 // Len also fails if the object has a type that len() not accept.
 //
-//    a.Len(mySlice, 3, "The size of slice is not 3")
+//   a.Len(mySlice, 3, "The size of slice is not 3")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Len(object interface{}, length int, msgAndArgs ...interface{}) bool {
@@ -214,7 +214,7 @@ func (a *Assertions) Len(object interface{}, length int, msgAndArgs ...interface
 
 // Nil asserts that the specified object is nil.
 //
-//    a.Nil(err, "err should be nothing")
+//   a.Nil(err, "err should be nothing")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Nil(object interface{}, msgAndArgs ...interface{}) bool {
@@ -225,7 +225,7 @@ func (a *Assertions) Nil(object interface{}, msgAndArgs ...interface{}) bool {
 //
 //   actualObj, err := SomeFunction()
 //   if a.NoError(err) {
-// 	   assert.Equal(t, actualObj, expectedObj)
+//     assert.Equal(t, actualObj, expectedObj)
 //   }
 //
 // Returns whether the assertion was successful (true) or not (false).
@@ -236,9 +236,9 @@ func (a *Assertions) NoError(err error, msgAndArgs ...interface{}) bool {
 // NotContains asserts that the specified string, list(array, slice...) or map does NOT contain the
 // specified substring or element.
 //
-//    a.NotContains("Hello World", "Earth", "But 'Hello World' does NOT contain 'Earth'")
-//    a.NotContains(["Hello", "World"], "Earth", "But ['Hello', 'World'] does NOT contain 'Earth'")
-//    a.NotContains({"Hello": "World"}, "Earth", "But {'Hello': 'World'} does NOT contain 'Earth'")
+//   a.NotContains("Hello World", "Earth", "But 'Hello World' does NOT contain 'Earth'")
+//   a.NotContains(["Hello", "World"], "Earth", "But ['Hello', 'World'] does NOT contain 'Earth'")
+//   a.NotContains({"Hello": "World"}, "Earth", "But {'Hello': 'World'} does NOT contain 'Earth'")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) NotContains(s interface{}, contains interface{}, msgAndArgs ...interface{}) bool {
@@ -248,9 +248,9 @@ func (a *Assertions) NotContains(s interface{}, contains interface{}, msgAndArgs
 // NotEmpty asserts that the specified object is NOT empty.  I.e. not nil, "", false, 0 or either
 // a slice or a channel with len == 0.
 //
-//  if a.NotEmpty(obj) {
-//    assert.Equal(t, "two", obj[1])
-//  }
+//   if a.NotEmpty(obj) {
+//     assert.Equal(t, "two", obj[1])
+//   }
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) NotEmpty(object interface{}, msgAndArgs ...interface{}) bool {
@@ -259,7 +259,7 @@ func (a *Assertions) NotEmpty(object interface{}, msgAndArgs ...interface{}) boo
 
 // NotEqual asserts that the specified values are NOT equal.
 //
-//    a.NotEqual(obj1, obj2, "two objects shouldn't be equal")
+//   a.NotEqual(obj1, obj2, "two objects shouldn't be equal")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) NotEqual(expected interface{}, actual interface{}, msgAndArgs ...interface{}) bool {
@@ -268,7 +268,7 @@ func (a *Assertions) NotEqual(expected interface{}, actual interface{}, msgAndAr
 
 // NotNil asserts that the specified object is not nil.
 //
-//    a.NotNil(err, "err should be something")
+//   a.NotNil(err, "err should be something")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) NotNil(object interface{}, msgAndArgs ...interface{}) bool {
@@ -288,8 +288,8 @@ func (a *Assertions) NotPanics(f PanicTestFunc, msgAndArgs ...interface{}) bool 
 
 // NotRegexp asserts that a specified regexp does not match a string.
 //
-//  a.NotRegexp(regexp.MustCompile("starts"), "it's starting")
-//  a.NotRegexp("^start", "it's not starting")
+//   a.NotRegexp(regexp.MustCompile("starts"), "it's starting")
+//   a.NotRegexp("^start", "it's not starting")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) NotRegexp(rx interface{}, str interface{}, msgAndArgs ...interface{}) bool {
@@ -314,8 +314,8 @@ func (a *Assertions) Panics(f PanicTestFunc, msgAndArgs ...interface{}) bool {
 
 // Regexp asserts that a specified regexp matches a string.
 //
-//  a.Regexp(regexp.MustCompile("start"), "it's starting")
-//  a.Regexp("start...$", "it's not starting")
+//   a.Regexp(regexp.MustCompile("start"), "it's starting")
+//   a.Regexp("start...$", "it's not starting")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) Regexp(rx interface{}, str interface{}, msgAndArgs ...interface{}) bool {
@@ -324,7 +324,7 @@ func (a *Assertions) Regexp(rx interface{}, str interface{}, msgAndArgs ...inter
 
 // True asserts that the specified value is true.
 //
-//    a.True(myBool, "myBool should be true")
+//   a.True(myBool, "myBool should be true")
 //
 // Returns whether the assertion was successful (true) or not (false).
 func (a *Assertions) True(value bool, msgAndArgs ...interface{}) bool {
